@@ -93,13 +93,13 @@ class SinglyLinkedList {
         // Implement this as a singly linked list then as a doubly linked list
         // Singly Linked List
         if (!this.head) return null;
-        let singleStepPointer = this.head;
-        let doubleStepPointer = this.head;
-        while (singleStepPointer.next && doubleStepPointer.next?.next) {
-            singleStepPointer = singleStepPointer.next;
-            doubleStepPointer = doubleStepPointer.next.next;
+        let slowPointer = this.head;
+        let fastPointer = this.head;
+        while (slowPointer.next && fastPointer.next?.next) {
+            slowPointer = slowPointer.next;
+            fastPointer = fastPointer.next.next;
         }
-        return singleStepPointer;
+        return slowPointer;
             // How do the implementation for singly and doubly vary if at all?
         // tbh, in this case the implementation does not vary for singly linked list
         // or doubly linked list because we are only concerned with traversing forward
